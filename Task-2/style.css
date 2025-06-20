@@ -14,8 +14,14 @@ body{
     border-radius: 10px;
 }
 
-.h1{
-    text-align: center;
+.top{
+    display: flex;
+}
+
+.top img{
+    display: inline;
+    height: 90px;
+    margin-right: 28px;
 }
 
 #input form{
