@@ -4,6 +4,7 @@ import "./todo.css";
 function TODO() {
     const [inputValue, setInputValue] = useState("");
     const [todolist, updatedList] = useState([]);
+    const [state, setState] = useState(false);
 
     // useEffect(() => {
     //     const newTodo = localStorage.getItem("todoList");
@@ -26,6 +27,7 @@ function TODO() {
         }];
         updatedList(newList);
         setInputValue("");
+        setState(false);
     }
 
     const HandleValue = (e) => {
@@ -37,6 +39,7 @@ function TODO() {
     }
 
     const HandleEdit = (id, item) => {
+        setState(true);
         setInputValue(item);
         updatedList(todolist.filter(items => items.id !== id));
 
@@ -45,6 +48,7 @@ function TODO() {
     const HandleEnter = (keyPressed) => {
         if (keyPressed.key === "Enter") {
             HandleAdd();
+            setState(false);
         }
     }
 
@@ -52,12 +56,15 @@ function TODO() {
         <div className="todo">
             <h1>TODO APP</h1>
             <input type="text" onChange={HandleValue} onKeyDown={HandleEnter} value={inputValue} />
-            <button onClick={HandleAdd}>ADD</button>
+            {state ? (
+                <button onClick={HandleAdd}>UPDATE</button>
+            ) : (
+                <button onClick={HandleAdd}>ADD</button>)}
             <ul>
                 {todolist.map((item) =>
                     <li id={item.id}><p>{item.value}</p>
                         <div>
-                            <button onClick={() => HandleEdit(item.id, item.value)}><i className="fa-solid fa-pencil"></i></button>
+                            {state ? <></> : <button onClick={() => HandleEdit(item.id, item.value)}><i className="fa-solid fa-pencil"></i></button>}
                             <button onClick={() => HandleDelete(item.id)}><i className="fa-solid fa-trash"></i></button>
                         </div>
                     </li>
