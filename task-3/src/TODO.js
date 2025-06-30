@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./todo.css";
 
 function TODO() {
     const [inputValue, setInputValue] = useState("");
     const [todolist, updatedList] = useState([]);
     const [state, setState] = useState(false);
+    const editIn = useRef(null);
 
     // useEffect(() => {
     //     const newTodo = localStorage.getItem("todoList");
@@ -42,6 +43,7 @@ function TODO() {
         setState(true);
         setInputValue(item);
         updatedList(todolist.filter(items => items.id !== id));
+        editIn.current.focus();
 
     }
 
@@ -55,7 +57,7 @@ function TODO() {
     return (
         <div className="todo">
             <h1>TODO APP</h1>
-            <input type="text" onChange={HandleValue} onKeyDown={HandleEnter} value={inputValue} />
+            <input type="text" onChange={HandleValue} onKeyDown={HandleEnter} value={inputValue} ref={editIn} />
             {state ? (
                 <button onClick={HandleAdd}>UPDATE</button>
             ) : (
