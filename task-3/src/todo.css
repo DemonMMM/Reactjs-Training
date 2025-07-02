@@ -1,75 +1,97 @@
 .todo {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: 0 auto;
-    align-items: center;
-    justify-content: center;
-    background-color: #212122;
-    border-radius: 10px;
-    box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  background-color: #212122;
+  border-radius: 10px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.8);
 }
 
 .todo h1 {
-    color: orange;
+  color: orange;
+}
+
+#Form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
 .todo input {
-    width: 90%;
-    border-radius: 6px;
-    margin-bottom: 18px;
-    padding: 3px;
+  width: 90%;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  padding: 3px;
 }
 
 .todo input:focus {
-    outline: none;
+  outline: none;
 }
 
 .todo input:hover {
-    outline: auto;
+  outline: auto;
 }
 
 .todo button {
-    font-family: Arial, Helvetica, sans-serif;
-    padding: 6px 18px;
-    border: 1px solid #212122;
-    border-radius: 5px;
-    background-color: #e67e22;
-    font-weight: 600;
-    color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 6px 18px;
+  border: 1px solid #212122;
+  border-radius: 5px;
+  background-color: #e67e22;
+  font-weight: 600;
+  color: #fff;
 }
 
 .todo button:hover {
-    background-color: #d35400;
+  background-color: #d35400;
 }
 
 .todo button:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .todo ul {
-    list-style: none;
-    padding: 0;
-    width: 80%;
-    max-height: 356px;
-    overflow-y: auto;
-    overflow-x: hidden;
+  list-style: none;
+  padding: 0;
+  width: 80%;
+  max-height: 356px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .todo li {
+  display: grid;
+  margin-bottom: 7px;
+  width: 100%;
+}
+
+.todoListEntry {
     display: flex;
-    margin-bottom: 7px;
     width: 100%;
+    
 }
 
-.todo li p {
-    flex-grow: 1;
-    margin: 0;
-    color: #ccc;
-    word-wrap: break-word;
-    overflow: hidden;
+.todoListEntry p {
+  flex-grow: 1;
+  margin: 0;
+  color: #ccc;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
-.todo li div {
-    flex-shrink: 0;
+.todoListEntry div {
+  flex-shrink: 0;
+}
+
+.todo li input {
+  width: 65%;
+  border-radius: 6px;
+  margin: 7px;
+  margin-left: 0%;
+  padding: 3px;
 }
